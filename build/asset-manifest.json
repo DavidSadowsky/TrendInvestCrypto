@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/TrendInvest/static/css/main.9d5b29c0.chunk.css",
+    "main.js": "/TrendInvest/static/js/main.35be23b3.chunk.js",
+    "main.js.map": "/TrendInvest/static/js/main.35be23b3.chunk.js.map",
+    "runtime-main.js": "/TrendInvest/static/js/runtime-main.202049da.js",
+    "runtime-main.js.map": "/TrendInvest/static/js/runtime-main.202049da.js.map",
+    "static/css/2.4c97ca4f.chunk.css": "/TrendInvest/static/css/2.4c97ca4f.chunk.css",
+    "static/js/2.bda16559.chunk.js": "/TrendInvest/static/js/2.bda16559.chunk.js",
+    "static/js/2.bda16559.chunk.js.map": "/TrendInvest/static/js/2.bda16559.chunk.js.map",
+    "static/js/3.9bfd70d5.chunk.js": "/TrendInvest/static/js/3.9bfd70d5.chunk.js",
+    "static/js/3.9bfd70d5.chunk.js.map": "/TrendInvest/static/js/3.9bfd70d5.chunk.js.map",
+    "index.html": "/TrendInvest/index.html",
+    "static/css/2.4c97ca4f.chunk.css.map": "/TrendInvest/static/css/2.4c97ca4f.chunk.css.map",
+    "static/css/main.9d5b29c0.chunk.css.map": "/TrendInvest/static/css/main.9d5b29c0.chunk.css.map",
+    "static/js/2.bda16559.chunk.js.LICENSE.txt": "/TrendInvest/static/js/2.bda16559.chunk.js.LICENSE.txt",
+    "static/media/Trend Invest.f8b770c9.svg": "/TrendInvest/static/media/Trend Invest.f8b770c9.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.202049da.js",
+    "static/css/2.4c97ca4f.chunk.css",
+    "static/js/2.bda16559.chunk.js",
+    "static/css/main.9d5b29c0.chunk.css",
+    "static/js/main.35be23b3.chunk.js"
+  ]
+}
