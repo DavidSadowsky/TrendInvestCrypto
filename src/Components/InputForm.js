@@ -72,7 +72,8 @@ const InputForm = ({setData, setIsLoading}) => {
     const getPrediction = () => {
       setIsLoading(true)
       fetch('https://trend-invest-web.herokuapp.com/predict?coinName=' + selection, {
-        method: "GET"
+        method: "GET",
+        mode: "cors"
       }).then(res => res.json().then(data => {
         setData(data.data)
         setIsLoading(false)
