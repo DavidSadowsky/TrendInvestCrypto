@@ -66,7 +66,6 @@ const BootstrapButton = withStyles({
 
 const Report = ({data, onClear}) => {
     const classes = useStyles()
-    console.log(data.misc.Reddit_mentions_last_week)
     const reddit_mentions = [
         { 
             "name": "4",

@@ -77,6 +77,9 @@ const InputForm = ({setData, setIsLoading}) => {
       }).then(res => res.json().then(data => {
         setData(data.data)
         setIsLoading(false)
+      }).catch((error) => {
+        console.error('Error:', error)
+        setIsLoading(false)
       })
     )}
 
