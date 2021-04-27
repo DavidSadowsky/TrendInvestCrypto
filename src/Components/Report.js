@@ -129,10 +129,10 @@ const Report = ({data, onClear}) => {
     ]
 
     const reddit_mentions_percent_change = [
-        data.misc.Reddit_mentions_this_week / data.misc.Reddit_mentions_last_week,
-        data.misc.Reddit_mentions_last_week / data.misc.Reddit_mentions_two_weeks_ago,
-        data.misc.Reddit_mentions_two_weeks_ago / data.misc.Reddit_mentions_three_weeks_ago,
-        data.misc.Reddit_mentions_three_weeks_ago / data.misc.Reddit_mentions_four_weeks_ago,
+        data.misc.Reddit_mentions_last_week === 0 ? 1 + data.misc.Reddit_mentions_this_week : data.misc.Reddit_mentions_this_week / data.misc.Reddit_mentions_last_week,
+        data.misc.Reddit_mentions_two_weeks_ago === 0 ? 1 + data.misc.Reddit_mentions_last_week : data.misc.Reddit_mentions_last_week / data.misc.Reddit_mentions_two_weeks_ago,
+        data.misc.Reddit_mentions_three_weeks_ago === 0 ? 1 + data.misc.Reddit_mentions_two_weeks_ago : data.misc.Reddit_mentions_two_weeks_ago / data.misc.Reddit_mentions_three_weeks_ago,
+        data.misc.Reddit_mentions_four_weeks_ago === 0 ? 1 + data.misc.Reddit_mentions_three_weeks_ago : data.misc.Reddit_mentions_three_weeks_ago / data.misc.Reddit_mentions_four_weeks_ago,
         1,
     ]
 
@@ -160,10 +160,10 @@ const Report = ({data, onClear}) => {
     ]
 
     const reddit_sentiment_percent_change = [
-        data.misc.Reddit_sentiment_this_week / data.misc.Reddit_sentiment_last_week,
-        data.misc.Reddit_sentiment_last_week / data.misc.Reddit_sentiment_two_weeks_ago,
-        data.misc.Reddit_sentiment_two_weeks_ago / data.misc.Reddit_sentiment_three_weeks_ago,
-        data.misc.Reddit_sentiment_three_weeks_ago / data.misc.Reddit_sentiment_four_weeks_ago,
+        data.misc.Reddit_sentiment_last_week === 0 ? 1 + data.misc.Reddit_sentiment_this_week : data.misc.Reddit_sentiment_this_week / data.misc.Reddit_sentiment_last_week,
+        data.misc.Reddit_sentiment_two_weeks_ago === 0 ? 1 + data.misc.Reddit_sentiment_last_week : data.misc.Reddit_sentiment_last_week / data.misc.Reddit_sentiment_two_weeks_ago,
+        data.misc.Reddit_sentiment_three_weeks_ago === 0 ? 1 + data.misc.Reddit_sentiment_two_weeks_ago : data.misc.Reddit_sentiment_two_weeks_ago / data.misc.Reddit_sentiment_three_weeks_ago,
+        data.misc.Reddit_sentiment_four_weeks_ago === 0 ? 1 + data.misc.Reddit_sentiment_three_weeks_ago : data.misc.Reddit_sentiment_three_weeks_ago / data.misc.Reddit_sentiment_four_weeks_ago,
         1,
     ]
 
@@ -191,10 +191,10 @@ const Report = ({data, onClear}) => {
     ]
 
     const twitter_mentions_percent_change = [
-        data.misc.Twitter_mentions_this_week / data.misc.Twitter_mentions_last_week,
-        data.misc.Twitter_mentions_last_week / data.misc.Twitter_mentions_two_weeks_ago,
-        data.misc.Twitter_mentions_two_weeks_ago / data.misc.Twitter_mentions_three_weeks_ago,
-        data.misc.Twitter_mentions_three_weeks_ago / data.misc.Twitter_mentions_four_weeks_ago,
+        data.misc.Twitter_mentions_last_week === 0 ? 1 + data.misc.Twitter_mentions_this_week : data.misc.Twitter_mentions_this_week / data.misc.Twitter_mentions_last_week,
+        data.misc.Twitter_mentions_two_weeks_ago === 0 ? 1 + data.misc.Twitter_mentions_last_week : data.misc.Twitter_mentions_last_week / data.misc.Twitter_mentions_two_weeks_ago,
+        data.misc.Twitter_mentions_three_weeks_ago === 0 ? 1 + data.misc.Twitter_mentions_two_weeks_ago : data.misc.Twitter_mentions_two_weeks_ago / data.misc.Twitter_mentions_three_weeks_ago,
+        data.misc.Twitter_mentions_four_weeks_ago === 0 ? 1 + data.misc.Twitter_mentions_three_weeks_ago : data.misc.Twitter_mentions_three_weeks_ago / data.misc.Twitter_mentions_four_weeks_ago,
         1,
     ]
 
@@ -222,10 +222,10 @@ const Report = ({data, onClear}) => {
     ]
 
     const twitter_sentiment_percent_change = [
-        data.misc.Twitter_sentiment_this_week / data.misc.Twitter_sentiment_last_week,
-        data.misc.Twitter_sentiment_last_week / data.misc.Twitter_sentiment_two_weeks_ago,
-        data.misc.Twitter_sentiment_two_weeks_ago / data.misc.Twitter_sentiment_three_weeks_ago,
-        data.misc.Twitter_sentiment_three_weeks_ago / data.misc.Twitter_sentiment_four_weeks_ago,
+        data.misc.Twitter_sentiment_last_week === 0 ? 1 + data.misc.Twitter_sentiment_this_week : data.misc.Twitter_sentiment_this_week / data.misc.Twitter_sentiment_last_week,
+        data.misc.Twitter_sentiment_two_weeks_ago === 0 ? 1 + data.misc.Twitter_sentiment_last_week : data.misc.Twitter_sentiment_last_week / data.misc.Twitter_sentiment_two_weeks_ago,
+        data.misc.Twitter_sentiment_three_weeks_ago === 0 ? 1 + data.misc.Twitter_sentiment_two_weeks_ago : data.misc.Twitter_sentiment_two_weeks_ago / data.misc.Twitter_sentiment_three_weeks_ago,
+        data.misc.Twitter_sentiment_four_weeks_ago === 0 ? 1 + data.misc.Twitter_sentiment_three_weeks_ago : data.misc.Twitter_sentiment_three_weeks_ago / data.misc.Twitter_sentiment_four_weeks_ago,
         1,
     ]
 
@@ -253,10 +253,10 @@ const Report = ({data, onClear}) => {
     ]
 
     const price_percent_change = [
-        data.misc.Price_this_week / data.misc.Price_last_week,
-        data.misc.Price_last_week / data.misc.Price_two_weeks_ago,
-        data.misc.Price_two_weeks_ago / data.misc.Price_three_weeks_ago,
-        data.misc.Price_three_weeks_ago / data.misc.Price_four_weeks_ago,
+        data.misc.Price_last_week === 0 ? 1 + data.misc.Price_this_week : data.misc.Price_this_week / data.misc.Price_last_week,
+        data.misc.Price_two_weeks_ago === 0 ? 1 + data.misc.Price_last_week : data.misc.Price_last_week / data.misc.Price_two_weeks_ago,
+        data.misc.Price_three_weeks_ago === 0 ? 1 + data.misc.Price_two_weeks_ago : data.misc.Price_two_weeks_ago / data.misc.Price_three_weeks_ago,
+        data.misc.Price_four_weeks_ago === 0 ? 1 + data.misc.Price_three_weeks_ago : data.misc.Price_three_weeks_ago / data.misc.Price_four_weeks_ago,
         1,
     ]
     return (
