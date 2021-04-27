@@ -1,13 +1,11 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
-import Box from '@material-ui/core/Box'
 import Report from './Report'
 import TypeWriterEffect from 'react-typewriter-effect';
+import Hidden from '@material-ui/core/Hidden'
+import Grid from '@material-ui/core/Grid'
 
 const useStyles = makeStyles((theme) => ({
-    logo: {
-      marginLeft: theme.spacing(15)
-    },
     body: {
       backgroundColor: 'white',
       padding: theme.spacing(5),
@@ -20,18 +18,6 @@ const useStyles = makeStyles((theme) => ({
       alignItems: 'center',
       marginTop: 50,
     },
-    bottom: {
-        color: theme.palette.grey[theme.palette.type === 'light' ? 200 : 700],
-      },
-      top: {
-        color: '#1a90ff',
-        animationDuration: '550ms',
-        position: 'absolute',
-        left: 0,
-      },
-      circle: {
-        strokeLinecap: 'round',
-      }
   }))
 
 const Results = ({onClear, data}) => {
@@ -39,7 +25,18 @@ const Results = ({onClear, data}) => {
     const myRef = document.querySelector('.scrollable-div')
 
     return (
-        <div style={{ paddingBottom: 50}}>
+      <Grid container>
+        <Hidden smUp>
+        <Grid container style={{ 
+          paddingBottom: 50,
+          display: 'flex',
+          flex: 1,
+          flexDirection: 'column',
+          justifyContent: 'start',
+          alignItems: 'center',
+          padding: 10,
+          zoom: '75%'
+          }}>
         <TypeWriterEffect
                 textStyle={{ fontFamily: 'Red Hat Display', color: 'white', textAlign: 'center' }}
                 startDelay={0}
@@ -51,10 +48,42 @@ const Results = ({onClear, data}) => {
                 scrollArea={myRef}
                 className={classes.title}
                 />
-        <Box className={classes.body} pt={20}>
+        <Grid container xs={12}
+         className={classes.body}
+         >
             <Report onClear={onClear} data={data}/>
-        </Box>
-        </div>
+        </Grid>
+        </Grid>
+        </Hidden>
+        <Hidden xsDown>
+        <Grid container style={{ 
+          paddingBottom: 50,
+          display: 'flex',
+          flex: 1,
+          flexDirection: 'column',
+          justifyContent: 'start',
+          alignItems: 'center',
+          padding: 10,
+          }}>
+        <TypeWriterEffect
+                textStyle={{ fontFamily: 'Red Hat Display', color: 'white', textAlign: 'center' }}
+                startDelay={0}
+                cursorColor="white"
+                multiText={["Thanks for waiting!",
+                "Here's your report."]}
+                typeSpeed={50}
+                hideCursorAfterText={true}
+                scrollArea={myRef}
+                className={classes.title}
+                />
+        <Grid container xs={12}
+         className={classes.body}
+         >
+            <Report onClear={onClear} data={data}/>
+        </Grid>
+        </Grid>
+        </Hidden>
+        </Grid>
     );
 }
 

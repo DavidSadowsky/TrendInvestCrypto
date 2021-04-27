@@ -7,24 +7,26 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import { AnimateOnChange } from 'react-animation'
 import Landing from './Screens/landing'
 import Results from './Components/Results'
+import Grid from '@material-ui/core/Grid'
+import Hidden from '@material-ui/core/Hidden'
 
 const useStyles = makeStyles((theme) => ({
   logo: {
-    alignSelf: 'start'
+    alignSelf: 'flex-start',
   },
   body: {
     display: 'flex',
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    flexDirection: 'column'
+    flexDirection: 'column',
   },
   card: {
     display: 'flex',
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    flexDirection: 'column'
+    flexDirection: 'column',
   },
   title: {
     color: 'white',
@@ -49,17 +51,32 @@ function App() {
   const classes = useStyles()
 
   return (
-    <div className={classes.body}>
+    <Grid
+     container
+     direction="column"
+     justify="center"
+     alignItems="center"
+     >
+       <Hidden xsDown>
+       <img src={logo} width='200' height='200' className={classes.logo} alt="Trend Invest Crypto Logo"/>
+       </Hidden>
+       <Hidden smUp>
+      <Grid item>
       <img src={logo} width='200' height='200' className={classes.logo} alt="Trend Invest Crypto Logo"/>
+      </Grid>
+      </Hidden>
+      <Grid item>
       <AnimateOnChange>
         {data != null ? 
-          <Box className={classes.card}>
             <Results onClear={setData} data={data} />
-          </Box> 
-          : 
-          <Landing setData={setData} isLoading={isLoading} setIsLoading={setIsLoading} />}
+          :
+          <Box>
+          <Landing setData={setData} isLoading={isLoading} setIsLoading={setIsLoading} />
+          </Box>
+          }
       </AnimateOnChange>
-    </div>
+      </Grid>
+    </Grid>
   );
 }
 

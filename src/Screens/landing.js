@@ -25,7 +25,8 @@ const useStyles = makeStyles((theme) => ({
     },
     title: {
       color: 'white',
-      textAlign: 'center'
+      textAlign: 'center',
+      alignSelf: 'center'
     },
     animateWrapper: {
       display: 'flex',
@@ -39,7 +40,7 @@ const Landing = ({setData, data, setIsLoading, isLoading}) => {
     const classes = useStyles()
     const myRef = document.querySelector('.scrollable-div')
     return (
-      <div className={classes.body}>
+      <Container className={classes.body}>
         { isLoading ? <TypeWriterEffect
                 textStyle={{ fontFamily: 'Red Hat Display', color: 'white', textAlign: 'center' }}
                 startDelay={100}
@@ -72,7 +73,7 @@ const Landing = ({setData, data, setIsLoading, isLoading}) => {
                 </Box>
             </Container>
         }
-        </div>
+        </Container>
     )
 }
 

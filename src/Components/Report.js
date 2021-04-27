@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { makeStyles, withStyles } from '@material-ui/core/styles'
-import Box from '@material-ui/core/Box'
 import { LineChart, XAxis, CartesianGrid, Line, Tooltip, YAxis } from 'recharts'
 import Button from '@material-ui/core/Button'
+import Grid from '@material-ui/core/Grid'
+import Container from '@material-ui/core/Container'
+import Hidden from '@material-ui/core/Hidden'
 
 const useStyles = makeStyles((theme) => ({
     body: {
@@ -33,60 +35,105 @@ const useStyles = makeStyles((theme) => ({
     },
     reddit_sentiment_graph: {
         paddingTop: 50
-    }
-}))
-
-const BootstrapButton = withStyles({
-    root: {
-      color: 'white',
-      boxShadow: 'none',
-      textTransform: 'none',
-      fontSize: 14,
-      padding: '6px 200px',
-      border: '1px solid',
-      lineHeight: 1.5,
-      backgroundColor: '#1652F0',
-      borderColor: '#0063cc',
-      fontFamily: 'Red Hat Display',
-      '&:hover': {
-        backgroundColor: '#0069d9',
-        borderColor: '#0062cc',
-        boxShadow: 'none',
-      },
-      '&:active': {
-        boxShadow: 'none',
-        backgroundColor: '#0062cc',
-        borderColor: '#005cbf',
-      },
-      '&:focus': {
-        boxShadow: '0 0 0 0.2rem rgba(0,123,255,.5)',
-      },
     },
-  })(Button);
+    xlabel: {
+        
+    },
+    button: {
+        color: 'white',
+        boxShadow: 'none',
+        textTransform: 'none',
+        fontSize: 14,
+        paddingLeft: theme.spacing(20),
+        paddingRight: theme.spacing(20),
+        border: '1px solid',
+        lineHeight: 1.5,
+        backgroundColor: '#1652F0',
+        borderColor: '#0063cc',
+        fontFamily: 'Red Hat Display',
+        '&:hover': {
+          backgroundColor: '#0069d9',
+          borderColor: '#0062cc',
+          boxShadow: 'none',
+        },
+        '&:active': {
+          boxShadow: 'none',
+          backgroundColor: '#0062cc',
+          borderColor: '#005cbf',
+        },
+        '&:focus': {
+          boxShadow: '0 0 0 0.2rem rgba(0,123,255,.5)',
+        },
+        '&:disabled': {
+          backgroundColor: '#bababa',
+          borderColor: '#bababa'
+        }
+      },
+      buttonSmall: {
+        color: 'white',
+        boxShadow: 'none',
+        textTransform: 'none',
+        fontSize: 14,
+        paddingLeft: theme.spacing(2),
+        paddingRight: theme.spacing(2),
+        border: '1px solid',
+        lineHeight: 1.5,
+        backgroundColor: '#1652F0',
+        borderColor: '#0063cc',
+        fontFamily: 'Red Hat Display',
+        '&:hover': {
+          backgroundColor: '#0069d9',
+          borderColor: '#0062cc',
+          boxShadow: 'none',
+        },
+        '&:active': {
+          boxShadow: 'none',
+          backgroundColor: '#0062cc',
+          borderColor: '#005cbf',
+        },
+        '&:focus': {
+          boxShadow: '0 0 0 0.2rem rgba(0,123,255,.5)',
+        },
+        '&:disabled': {
+          backgroundColor: '#bababa',
+          borderColor: '#bababa'
+        }
+      }
+}))
 
 const Report = ({data, onClear}) => {
     const classes = useStyles()
     const reddit_mentions = [
         { 
             "name": "4",
-            "# of reddit mentions": data.misc.Reddit_mentions_four_weeks_ago, 
+            "# of reddit mentions": data.misc.Reddit_mentions_four_weeks_ago,
         },
         { 
             "name": "3",
-            "# of reddit mentions": data.misc.Reddit_mentions_three_weeks_ago, 
+            "# of reddit mentions": data.misc.Reddit_mentions_three_weeks_ago,
         },
         { 
             "name": "2",
-            "# of reddit mentions": data.misc.Reddit_mentions_two_weeks_ago, 
+            "# of reddit mentions": data.misc.Reddit_mentions_two_weeks_ago,
         },
         { 
             "name": "1",
-            "# of reddit mentions": data.misc.Reddit_mentions_last_week, 
+            "# of reddit mentions": data.misc.Reddit_mentions_last_week,
+            
         },
         { 
             "name": "0",
             "# of reddit mentions": data.misc.Reddit_mentions_this_week, 
+            
         },
+    ]
+
+    const reddit_mentions_percent_change = [
+        data.misc.Reddit_mentions_this_week / data.misc.Reddit_mentions_last_week,
+        data.misc.Reddit_mentions_last_week / data.misc.Reddit_mentions_two_weeks_ago,
+        data.misc.Reddit_mentions_two_weeks_ago / data.misc.Reddit_mentions_three_weeks_ago,
+        data.misc.Reddit_mentions_three_weeks_ago / data.misc.Reddit_mentions_four_weeks_ago,
+        1,
     ]
 
     const reddit_sentiment = [
@@ -112,6 +159,14 @@ const Report = ({data, onClear}) => {
         },
     ]
 
+    const reddit_sentiment_percent_change = [
+        data.misc.Reddit_sentiment_this_week / data.misc.Reddit_sentiment_last_week,
+        data.misc.Reddit_sentiment_last_week / data.misc.Reddit_sentiment_two_weeks_ago,
+        data.misc.Reddit_sentiment_two_weeks_ago / data.misc.Reddit_sentiment_three_weeks_ago,
+        data.misc.Reddit_sentiment_three_weeks_ago / data.misc.Reddit_sentiment_four_weeks_ago,
+        1,
+    ]
+
     const twitter_mentions = [
         { 
             "name": "4",
@@ -133,6 +188,14 @@ const Report = ({data, onClear}) => {
             "name": "0",
             "# of twitter mentions": data.misc.Twitter_mentions_this_week, 
         },
+    ]
+
+    const twitter_mentions_percent_change = [
+        data.misc.Twitter_mentions_this_week / data.misc.Twitter_mentions_last_week,
+        data.misc.Twitter_mentions_last_week / data.misc.Twitter_mentions_two_weeks_ago,
+        data.misc.Twitter_mentions_two_weeks_ago / data.misc.Twitter_mentions_three_weeks_ago,
+        data.misc.Twitter_mentions_three_weeks_ago / data.misc.Twitter_mentions_four_weeks_ago,
+        1,
     ]
 
     const twitter_sentiment = [
@@ -158,6 +221,14 @@ const Report = ({data, onClear}) => {
         },
     ]
 
+    const twitter_sentiment_percent_change = [
+        data.misc.Twitter_sentiment_this_week / data.misc.Twitter_sentiment_last_week,
+        data.misc.Twitter_sentiment_last_week / data.misc.Twitter_sentiment_two_weeks_ago,
+        data.misc.Twitter_sentiment_two_weeks_ago / data.misc.Twitter_sentiment_three_weeks_ago,
+        data.misc.Twitter_sentiment_three_weeks_ago / data.misc.Twitter_sentiment_four_weeks_ago,
+        1,
+    ]
+
     const price = [
         { 
             "name": "4",
@@ -180,9 +251,25 @@ const Report = ({data, onClear}) => {
             "price": data.misc.Price_this_week, 
         },
     ]
+
+    const price_percent_change = [
+        data.misc.Price_this_week / data.misc.Price_last_week,
+        data.misc.Price_last_week / data.misc.Price_two_weeks_ago,
+        data.misc.Price_two_weeks_ago / data.misc.Price_three_weeks_ago,
+        data.misc.Price_three_weeks_ago / data.misc.Price_four_weeks_ago,
+        1,
+    ]
     return (
-        <Box className={classes.body}>
-            <h2>{data.misc.name}</h2>
+        <Grid
+         container
+         direction="column"
+         justify="center"
+         alignItems="center"
+         >
+            <Grid item xs={12}>
+                <h2>{data.misc.name}</h2>
+            </Grid>
+            <Grid item xs={12} style={{display: 'flex', flex: 1, flexDirection: 'row'}}>
             <caption>
                 <center>
                     I've predicted that {data.misc.name} is
@@ -197,99 +284,162 @@ const Report = ({data, onClear}) => {
                         </span>
                 </center>
             </caption>
-            <h4 className={classes.graph_section_title}>Here's some of the data I used</h4>
-            <div className={classes.graph_row}>
-                <div className={classes.graph}>
-                    <h6 className={classes.reddit_mentions_graph}>Reddit Mentions (Weekly)</h6>
+            </Grid>
+            <Grid item xs={12}>
+            <h4 className={classes.graph_section_title}><center>Here's some of the data I used</center></h4>
+            </Grid>
+            <Grid 
+            container
+            direction="row"
+            justify="center"
+            alignItems="center"
+            xs={12}
+            >
+                <Grid item md={6} sm={12} style={{ paddingTop: 20}}>
+                <Container style={{ display: 'flex', flex: 1, flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
+                    <h6 className={classes.xlabel}>Reddit Mentions (Weekly)</h6>
                         <LineChart
-                         width={400}
+                         width={375}
                          height={400}
                          data={reddit_mentions}
                          margin={{ top: 5, right: 20, left: 15, bottom: 5 }}
                         >
                             <XAxis dataKey="name"/>
                             <YAxis domain={['auto', 'auto']}/>
-                            <Tooltip />
+                            <Tooltip 
+                             labelFormatter={function(value) {
+                                return `Percent change: ${((reddit_mentions_percent_change[value] - 1) * 100).toFixed(2)}%`;
+                                }}
+                            />
                             <CartesianGrid stroke="#f5f5f5" />
                             <Line type="monotone" dataKey="# of reddit mentions" stroke="#8884d8" />
                         </LineChart>
-                    <h6>Weeks ago</h6>
-                </div>
-                <div className={classes.graph}>
-                    <h6 className={classes.reddit_mentions_graph}>Reddit Sentiment (Weekly)</h6>
+                    <h6 className={classes.xlabel}>Weeks ago</h6>
+                    </Container>
+                </Grid>
+                <Grid item md={6} sm={12} style={{ paddingTop: 20}}>
+                <Container style={{ display: 'flex', flex: 1, flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
+                    <h6 className={classes.xlabel}>Reddit Sentiment (Weekly)</h6>
                         <LineChart
-                         width={400}
+                         width={375}
                          height={400}
                          data={reddit_sentiment}
                          margin={{ top: 5, right: 20, left: 15, bottom: 5 }}
                         >
                             <XAxis dataKey="name"/>
                             <YAxis domain={['auto', 'auto']}/>
-                            <Tooltip />
+                            <Tooltip 
+                             labelFormatter={function(value) {
+                                return `Percent change: ${((reddit_sentiment_percent_change[value] - 1) * 100).toFixed(2)}%`;
+                                }}
+                            />
                             <CartesianGrid stroke="#f5f5f5" />
                             <Line type="monotone" dataKey="Average sentiment" stroke="#8884d8" />
                         </LineChart>
-                    <h6>Weeks ago</h6>
-                </div>
-            </div>
-            <div className={classes.graph_row}>
-                <div className={classes.graph}>
-                    <h6 className={classes.reddit_mentions_graph}>Twitter Mentions (Weekly)</h6>
+                    <h6 className={classes.xlabel}>Weeks ago</h6>
+                </Container>
+                </Grid>
+            </Grid>
+            <Grid 
+             container
+             direction="row"
+             justify="center"
+             alignItems="center"
+             xs={12}
+            >
+                <Grid item md={6} xs={12} style={{ paddingTop: 20}}>
+                    <Container style={{ display: 'flex', flex: 1, flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
+                    <h6 className={classes.xlabel}>Twitter Mentions (Weekly)</h6>
                         <LineChart
-                         width={400}
+                         width={375}
                          height={400}
                          data={twitter_mentions}
                          margin={{ top: 5, right: 20, left: 15, bottom: 5 }}
                         >
                             <XAxis dataKey="name"/>
                             <YAxis domain={['auto', 'auto']}/>
-                            <Tooltip />
+                            <Tooltip 
+                             labelFormatter={function(value) {
+                                return `Percent change: ${((twitter_mentions_percent_change[value] - 1) * 100).toFixed(2)}%`;
+                                }}
+                            />
                             <CartesianGrid stroke="#f5f5f5" />
                             <Line type="monotone" dataKey="# of twitter mentions" stroke="#8884d8" />
                         </LineChart>
-                    <h6>Weeks ago</h6>
-                </div>
-                <div className={classes.graph}>
-                    <h6 className={classes.reddit_mentions_graph}>Twitter Sentiment (Weekly)</h6>
+                    <h6 className={classes.xlabel}>Weeks ago</h6>
+                    </Container>
+                </Grid>
+                <Grid item md={6} xs={12} style={{ paddingTop: 40}}>
+                <Container style={{ display: 'flex', flex: 1, flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
+                    <h6 className={classes.xlabel}>Twitter Sentiment (Weekly)</h6>
                         <LineChart
-                         width={400}
+                         width={375}
                          height={400}
                          data={twitter_sentiment}
                          margin={{ top: 5, right: 20, left: 15, bottom: 5 }}
                         >
                             <XAxis dataKey="name"/>
                             <YAxis domain={['auto', 'auto']}/>
-                            <Tooltip />
+                            <Tooltip 
+                             labelFormatter={function(value) {
+                                return `Percent change: ${((twitter_sentiment_percent_change[value] - 1) * 100).toFixed(2)}%`;
+                                }}
+                            />
                             <CartesianGrid stroke="#f5f5f5" />
                             <Line type="monotone" dataKey="Average sentiment" stroke="#8884d8" />
                         </LineChart>
-                    <h6>Weeks ago</h6>
-                </div>
-            </div>
-            <div className={classes.graph_row}>
-                <div className={classes.graph}>
-                    <h6 className={classes.reddit_mentions_graph}>Price (Weekly)</h6>
+                    <h6 className={classes.xlabel}>Weeks ago</h6>
+                    </Container>
+                </Grid>
+            </Grid>
+            <Grid 
+             container
+             direction="row"
+             justify="center"
+             alignItems="center"
+             xs={12}>
+                <Grid item md={6} xs={12} style={{ paddingTop: 40}}>
+                <Container style={{ display: 'flex', flex: 1, flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
+                    <h6 className={classes.xlabel}>Price (Weekly)</h6>
                         <LineChart
-                         width={400}
+                         width={375}
                          height={400}
                          data={price}
                          margin={{ top: 5, right: 20, left: 15, bottom: 5 }}
                         >
                             <XAxis dataKey="name"/>
                             <YAxis domain={['auto', 'auto']}/>
-                            <Tooltip />
+                            <Tooltip 
+                             labelFormatter={function(value) {
+                                return `Percent change: ${((price_percent_change[value] - 1) * 100).toFixed(2)}%`;
+                                }}
+                            />
                             <CartesianGrid stroke="#f5f5f5" />
                             <Line type="monotone" dataKey="price" stroke="#8884d8" />
                         </LineChart>
-                    <h6>Weeks ago</h6>
-                </div>
-            </div>
-            <Box className={classes.submit} pt={10}>
-                <BootstrapButton onClick={() => onClear()}>
+                    <h6 className={classes.xlabel}>Weeks ago</h6>
+                </Container>
+                </Grid>
+            </Grid>
+            <Grid item xs={12} style={{ paddingTop: 20}}>
+            <Hidden xsDown>
+              <Button 
+               onClick={() => onClear()}
+               className={classes.button}
+                >
                     Make another prediction
-                </BootstrapButton>
-            </Box>
-        </Box>
+              </Button>
+            </Hidden>
+            <Hidden smUp>
+            <Button  
+               onClick={() => onClear()}
+               className={classes.buttonSmall}
+                >
+                    Make another prediction
+              </Button>
+            </Hidden>
+          </Grid>
+        </Grid>
     )
 }
 
