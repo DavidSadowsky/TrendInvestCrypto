@@ -70,6 +70,7 @@ const InputForm = ({setData, setIsLoading}) => {
     }
 
     const getPrediction = () => {
+      console.log('here')
       setIsLoading(true)
       fetch('https://davidsadowsky.github.io/TrendInvestCrypto/process?coinName=' + selection, {
         method: "GET",
