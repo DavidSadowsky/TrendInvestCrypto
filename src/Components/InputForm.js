@@ -70,15 +70,14 @@ const InputForm = ({setData, setIsLoading}) => {
     }
 
     const getPrediction = () => {
-      console.log('here')
       setIsLoading(true)
-      fetch('https://davidsadowsky.github.io/TrendInvestCrypto/process?coinName=' + selection, {
+      fetch('https://trend-invest-web.herokuapp.com/process?coinName=' + selection, {
         method: "GET",
         mode: "cors"
       }).then(res => res.json().then(data => {
         console.log(data)
         var predictInterval = setInterval(async function() {
-          fetch('https://davidsadowsky.github.io/TrendInvestCrypto/predict?coinName=' + selection, {
+          fetch('https://trend-invest-web.herokuapp.com/predict?coinName=' + selection, {
           method: "GET",
           mode: "cors"
           }).then(res => res.json().then(data => {
