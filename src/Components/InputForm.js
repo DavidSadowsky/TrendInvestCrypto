@@ -71,17 +71,35 @@ const InputForm = ({setData, setIsLoading}) => {
 
     const getPrediction = () => {
       setIsLoading(true)
-      fetch('https://trend-invest-web.herokuapp.com/predict?coinName=' + selection, {
+      fetch('https://davidsadowsky.github.io/TrendInvestCrypto/process?coinName=' + selection, {
         method: "GET",
         mode: "cors"
       }).then(res => res.json().then(data => {
-        setData(data.data)
-        setIsLoading(false)
+        console.log(data)
+        var predictInterval = setInterval(async function() {
+          fetch('https://davidsadowsky.github.io/TrendInvestCrypto/predict?coinName=' + selection, {
+          method: "GET",
+          mode: "cors"
+          }).then(res => res.json().then(data => {
+            if (data.data !== 'Job processing') {
+              setData(data.data)
+              setIsLoading(false)
+              clearInterval(predictInterval)
+            }
+            else {
+              console.log(data)
+            }
+          }).catch((error) => {
+            console.error('Error:', error)
+            setIsLoading(false)
+          })
+        )}, 2000)
       }).catch((error) => {
         console.error('Error:', error)
         setIsLoading(false)
       })
-    )}
+      )
+    }
 
     return (
         <form className={classes.form}>

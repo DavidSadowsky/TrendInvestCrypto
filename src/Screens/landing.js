@@ -35,7 +35,7 @@ const useStyles = makeStyles((theme) => ({
     }
   }))
 
-const Landing = ({setData, setIsLoading, isLoading}) => {
+const Landing = ({setData, data, setIsLoading, isLoading}) => {
     const classes = useStyles()
     const myRef = document.querySelector('.scrollable-div')
     return (
@@ -45,10 +45,10 @@ const Landing = ({setData, setIsLoading, isLoading}) => {
                 startDelay={100}
                 cursorColor="white"
                 multiText={["Generating a prediction...",
-                "this usually takes around 15-30 seconds...",
-                "however, since I'm collecting realtime data,",
-                "it'll take longer if multiple users want predictions.",
+                "this can take up to a minute since I'm collecting realtime data.",
                 "Reddit & Twitter have strict scraping limitations.",
+                "I can only parse 250 posts at a time - I wonder if there's a way around that?",
+                "Should be done soon...",
                 "Hang tight. I'm still working."
                 ]}
                 typeSpeed={50}

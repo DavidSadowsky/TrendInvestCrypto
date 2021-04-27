@@ -50,7 +50,7 @@ function App() {
 
   return (
     <div className={classes.body}>
-      <img src={logo} width='200' height='200' className={classes.logo}/>
+      <img src={logo} width='200' height='200' className={classes.logo} alt="Trend Invest Crypto Logo"/>
       <AnimateOnChange>
         {data != null ? 
           <Box className={classes.card}>
