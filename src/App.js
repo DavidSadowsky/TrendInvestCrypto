@@ -6,7 +6,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import { AnimateOnChange } from 'react-animation'
 import Landing from './Screens/landing'
-import Results from './Components/Results'
+import Results from './Screens/Results'
 import Grid from '@material-ui/core/Grid'
 import Hidden from '@material-ui/core/Hidden'
 

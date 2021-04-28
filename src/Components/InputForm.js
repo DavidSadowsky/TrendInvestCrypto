@@ -8,9 +8,6 @@ import Grid from '@material-ui/core/Grid'
 import Hidden from '@material-ui/core/Hidden'
 
 const useStyles = makeStyles((theme) => ({
-    logo: {
-      marginLeft: theme.spacing(15)
-    },
     form: {
       backgroundColor: 'white',
       padding: theme.spacing(5),

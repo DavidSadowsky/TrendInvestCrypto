@@ -1,6 +1,6 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
-import Report from './Report'
+import Report from '../Components/Report'
 import TypeWriterEffect from 'react-typewriter-effect';
 import Hidden from '@material-ui/core/Hidden'
 import Grid from '@material-ui/core/Grid'
@@ -27,17 +27,17 @@ const Results = ({onClear, data}) => {
     return (
       <Grid container>
         <Hidden smUp>
-        <Grid container style={{ 
-          paddingBottom: 50,
-          display: 'flex',
-          flex: 1,
-          flexDirection: 'column',
-          justifyContent: 'start',
-          alignItems: 'center',
-          padding: 10,
-          zoom: '75%'
+          <Grid container style={{ 
+           paddingBottom: 50,
+           display: 'flex',
+           flex: 1,
+           flexDirection: 'column',
+           justifyContent: 'start',
+           alignItems: 'center',
+           padding: 10,
+           zoom: '75%'
           }}>
-        <TypeWriterEffect
+            <TypeWriterEffect
                 textStyle={{ fontFamily: 'Red Hat Display', color: 'white', textAlign: 'center' }}
                 startDelay={0}
                 cursorColor="white"
@@ -48,24 +48,24 @@ const Results = ({onClear, data}) => {
                 scrollArea={myRef}
                 className={classes.title}
                 />
-        <Grid container xs={12}
-         className={classes.body}
-         >
-            <Report onClear={onClear} data={data}/>
-        </Grid>
-        </Grid>
+            <Grid container xs={12}
+             className={classes.body}
+            >
+              <Report onClear={onClear} data={data}/>
+            </Grid>
+          </Grid>
         </Hidden>
         <Hidden xsDown>
-        <Grid container style={{ 
-          paddingBottom: 50,
-          display: 'flex',
-          flex: 1,
-          flexDirection: 'column',
-          justifyContent: 'start',
-          alignItems: 'center',
-          padding: 10,
+          <Grid container style={{ 
+           paddingBottom: 50,
+           display: 'flex',
+           flex: 1,
+           flexDirection: 'column',
+           justifyContent: 'start',
+           alignItems: 'center',
+           padding: 10,
           }}>
-        <TypeWriterEffect
+            <TypeWriterEffect
                 textStyle={{ fontFamily: 'Red Hat Display', color: 'white', textAlign: 'center' }}
                 startDelay={0}
                 cursorColor="white"
@@ -76,14 +76,14 @@ const Results = ({onClear, data}) => {
                 scrollArea={myRef}
                 className={classes.title}
                 />
-        <Grid container xs={12}
-         className={classes.body}
-         >
-            <Report onClear={onClear} data={data}/>
-        </Grid>
-        </Grid>
+            <Grid container xs={12}
+             className={classes.body}
+            >
+              <Report onClear={onClear} data={data}/>
+            </Grid>
+          </Grid>
         </Hidden>
-        </Grid>
+      </Grid>
     );
 }
 
