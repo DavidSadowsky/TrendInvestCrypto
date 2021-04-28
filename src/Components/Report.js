@@ -253,7 +253,7 @@ const Report = ({data, onClear}) => {
              xs={12}
             >
                 <Graph title="Twitter Mentions (Weekly)" data={twitter_mentions} dataKey="# of twitter mentions" labels={twitter_mentions_percent_change} />
-                <Graph title="Twitter Mentions (Weekly)" data={twitter_sentiment} dataKey="Average sentiment" labels={twitter_sentiment_percent_change} />
+                <Graph title="Twitter Sentiment (Weekly)" data={twitter_sentiment} dataKey="Average sentiment" labels={twitter_sentiment_percent_change} />
             </Grid>
             <Grid 
              container
