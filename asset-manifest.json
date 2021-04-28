@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/TrendInvestCrypto/static/css/main.9d5b29c0.chunk.css",
-    "main.js": "/TrendInvestCrypto/static/js/main.57525735.chunk.js",
-    "main.js.map": "/TrendInvestCrypto/static/js/main.57525735.chunk.js.map",
+    "main.js": "/TrendInvestCrypto/static/js/main.b1949efc.chunk.js",
+    "main.js.map": "/TrendInvestCrypto/static/js/main.b1949efc.chunk.js.map",
     "runtime-main.js": "/TrendInvestCrypto/static/js/runtime-main.c32c71ab.js",
     "runtime-main.js.map": "/TrendInvestCrypto/static/js/runtime-main.c32c71ab.js.map",
     "static/css/2.4c97ca4f.chunk.css": "/TrendInvestCrypto/static/css/2.4c97ca4f.chunk.css",
@@ -21,6 +21,6 @@
     "static/css/2.4c97ca4f.chunk.css",
     "static/js/2.ac084384.chunk.js",
     "static/css/main.9d5b29c0.chunk.css",
-    "static/js/main.57525735.chunk.js"
+    "static/js/main.b1949efc.chunk.js"
   ]
 }
