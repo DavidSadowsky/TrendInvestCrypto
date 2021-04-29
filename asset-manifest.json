@@ -1,26 +1,26 @@
 {
   "files": {
     "main.css": "/TrendInvestCrypto/static/css/main.9d5b29c0.chunk.css",
-    "main.js": "/TrendInvestCrypto/static/js/main.b1949efc.chunk.js",
-    "main.js.map": "/TrendInvestCrypto/static/js/main.b1949efc.chunk.js.map",
-    "runtime-main.js": "/TrendInvestCrypto/static/js/runtime-main.c32c71ab.js",
-    "runtime-main.js.map": "/TrendInvestCrypto/static/js/runtime-main.c32c71ab.js.map",
+    "main.js": "/TrendInvestCrypto/static/js/main.0ce9cdbe.chunk.js",
+    "main.js.map": "/TrendInvestCrypto/static/js/main.0ce9cdbe.chunk.js.map",
+    "runtime-main.js": "/TrendInvestCrypto/static/js/runtime-main.3228d0b2.js",
+    "runtime-main.js.map": "/TrendInvestCrypto/static/js/runtime-main.3228d0b2.js.map",
     "static/css/2.4c97ca4f.chunk.css": "/TrendInvestCrypto/static/css/2.4c97ca4f.chunk.css",
-    "static/js/2.ac084384.chunk.js": "/TrendInvestCrypto/static/js/2.ac084384.chunk.js",
-    "static/js/2.ac084384.chunk.js.map": "/TrendInvestCrypto/static/js/2.ac084384.chunk.js.map",
-    "static/js/3.587e6f16.chunk.js": "/TrendInvestCrypto/static/js/3.587e6f16.chunk.js",
-    "static/js/3.587e6f16.chunk.js.map": "/TrendInvestCrypto/static/js/3.587e6f16.chunk.js.map",
+    "static/js/2.86c8853f.chunk.js": "/TrendInvestCrypto/static/js/2.86c8853f.chunk.js",
+    "static/js/2.86c8853f.chunk.js.map": "/TrendInvestCrypto/static/js/2.86c8853f.chunk.js.map",
+    "static/js/3.f4afa54a.chunk.js": "/TrendInvestCrypto/static/js/3.f4afa54a.chunk.js",
+    "static/js/3.f4afa54a.chunk.js.map": "/TrendInvestCrypto/static/js/3.f4afa54a.chunk.js.map",
     "index.html": "/TrendInvestCrypto/index.html",
     "static/css/2.4c97ca4f.chunk.css.map": "/TrendInvestCrypto/static/css/2.4c97ca4f.chunk.css.map",
     "static/css/main.9d5b29c0.chunk.css.map": "/TrendInvestCrypto/static/css/main.9d5b29c0.chunk.css.map",
-    "static/js/2.ac084384.chunk.js.LICENSE.txt": "/TrendInvestCrypto/static/js/2.ac084384.chunk.js.LICENSE.txt",
+    "static/js/2.86c8853f.chunk.js.LICENSE.txt": "/TrendInvestCrypto/static/js/2.86c8853f.chunk.js.LICENSE.txt",
     "static/media/Trend Invest.f8b770c9.svg": "/TrendInvestCrypto/static/media/Trend Invest.f8b770c9.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.c32c71ab.js",
+    "static/js/runtime-main.3228d0b2.js",
     "static/css/2.4c97ca4f.chunk.css",
-    "static/js/2.ac084384.chunk.js",
+    "static/js/2.86c8853f.chunk.js",
     "static/css/main.9d5b29c0.chunk.css",
-    "static/js/main.b1949efc.chunk.js"
+    "static/js/main.0ce9cdbe.chunk.js"
   ]
 }
