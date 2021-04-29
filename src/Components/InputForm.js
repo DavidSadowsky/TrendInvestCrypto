@@ -98,7 +98,7 @@ const InputForm = ({setData, setIsLoading}) => {
           mode: "cors",
           credentials: 'include'
           }).then(res => res.json().then(data => {
-            if (data.data !== 'Job running' && data.data !== 'Job started') {
+            if (!(data.data !== 'Job running' && data.data !== 'Job started')) {
               setData(data.data)
               setIsLoading(false)
               clearInterval(interval)
