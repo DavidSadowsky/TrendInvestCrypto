@@ -92,17 +92,26 @@ const InputForm = ({setData, setIsLoading}) => {
 
     const getPrediction = () => {
       setIsLoading(true)
+      var interval = setInterval(async function() {
         fetch('https://trend-invest-web.herokuapp.com/predict?coinName=' + selection, {
-        method: "GET",
-        mode: "cors"
-        }).then(res => res.json().then(data => {
-            setData(data.data)
+          method: "GET",
+          mode: "cors",
+          credentials: 'include'
+          }).then(res => res.json().then(data => {
+            if (data.data !== 'Job running' && data.data !== 'Job started') {
+              setData(data.data)
+              setIsLoading(false)
+              clearInterval(interval)
+            }
+            else {
+              console.log(data)
+            }
+          }).catch((error) => {
+            console.error('Error:', error)
             setIsLoading(false)
-        }).catch((error) => {
-          console.error('Error:', error)
-          setIsLoading(false)
-      })
-    )}
+        })
+      )}, 2000)
+    }
 
     return (
         <Grid container
