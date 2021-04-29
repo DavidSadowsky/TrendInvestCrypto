@@ -96,6 +96,7 @@ const InputForm = ({setData, setIsLoading}) => {
         fetch('https://trend-invest-web.herokuapp.com/predict?coinName=' + selection, {
           method: "GET",
           mode: "cors",
+          credentials: 'include'
           }).then(res => res.json().then(data => {
             if (data.data !== 'Job running' && data.data !== 'Job started') {
               setData(data.data)
